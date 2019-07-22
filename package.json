@@ -1,0 +1,88 @@
+{
+  "name": "kinokong3",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "0.18.0",
+    "bootstrap": "^4.1.3",
+    "classnames": "^2.2.6",
+    "history": "^4.7.2",
+    "husky": "^1.1.2",
+    "jquery": "3.3.1",
+    "jsdom": "^12.2.0",
+    "lint-staged": "^7.3.0",
+    "prettier": "^1.14.3",
+    "react": "^16.6.0",
+    "react-bootstrap": "0.32.4",
+    "react-dom": "^16.5.2",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^2.0.4",
+    "react-slick": "^0.23.1",
+    "react-star-rating-component": "^1.4.1"
+  },
+  "scripts": {
+    "flow:check": "flow check",
+    "ci": "npm run lint:js",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint:js": "eslint -c .eslintrc --ignore-path .eslintignore --ext .jsx,.js src --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.css": [
+      "prettier --config ./.prettierrc --write --parser css",
+      "git add"
+    ],
+    "*.{js,jsx}": [
+      "prettier --config ./.prettierrc --write",
+      "eslint -c .eslintrc --ignore-path .eslintignore --fix",
+      "git add"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app",
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ]
+    }
+  },
+  "proxy": "http://kinokong.net",
+  "prettier": {
+    "bracketSpacing": true,
+    "printWidth": 120,
+    "parser": "babylon",
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "useTabs": false,
+    "overrides": [
+      {
+        "files": "*.css",
+        "options": {
+          "singleQuote": false
+        }
+      }
+    ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "eslint-plugin-prettier": "^3.0.0",
+    "flow-bin": "^0.85.0"
+  }
+}
